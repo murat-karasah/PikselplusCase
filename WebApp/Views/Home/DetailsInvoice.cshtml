@@ -1,0 +1,46 @@
+﻿@model WebApp.Models.InvoiceModel
+
+@{
+    ViewData["Title"] = "Fatura Öde";
+}
+
+
+        <form asp-action="Payment">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="UserId" class="control-label">Abone Id</label>
+                <input asp-for="UserId" disabled class="form-control" value=@Model.UserId/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">Fatura Id</label>
+                <input asp-for="Id" name="Id" disabled class="form-control" value=@Model.Id/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Fatura Tutar</label>
+                <input asp-for="Amount" disabled class="form-control" value=@Model.Amount/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+          
+             
+
+
+            @if(@Model.Status)
+            {
+                <p>Fatura Ödenmiş</p>
+            }
+            else
+            {
+                <div class="form-group">
+        <a asp-action="Payment" asp-route-id="@Model.Id">Öde</a> |
+
+            </div>
+            }
+
+            
+        </form>
+
+
+ 

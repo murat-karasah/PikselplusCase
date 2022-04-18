@@ -1,0 +1,35 @@
+﻿@model dynamic
+
+
+@{
+    ViewData["Title"] = "Abone Detay";
+}
+
+<h2>Abone Bilgileri</h2>
+<p>Abone Id : @Model.user.Id<br /></p>
+<p>Abone İsim : @Model.user.Name<br /></p>
+<h2>Fatura Bilgileri</h2>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">FaturaId</th>
+      <th scope="col">Tutar</th>
+      <th scope="col">Durum</th>
+    </tr>
+  </thead>
+  <tbody>
+                @foreach (var item in Model.invoice)
+        {
+               <tr>
+      <th scope="row">@item.Id</th>
+      <td>@item.Amount</td>
+      <td>@item.Status</td>
+    </tr>
+        }
+     
+   
+  </tbody>
+</table>
+
+   
